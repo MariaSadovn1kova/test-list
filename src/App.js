@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {listData} from '../src/assets/listData'
+import DraggableList from './components/list/DraggableList';
+import Card from './components/card/Card';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className='header'>
+        Выбери себе питомца
+      </h1>
+      <DraggableList
+        data = {listData}
+        renderItemContent={(item) => AnimalCard(item)}
+      />
+    </>
   );
 }
+
+const AnimalCard = item => <Card item = {item}/>
 
 export default App;
